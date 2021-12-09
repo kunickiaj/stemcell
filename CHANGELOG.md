@@ -1,3 +1,6 @@
+# 0.13.1
+- Support for specifying --cpu-options
+
 # 0.13.0
 - Migrated AWS SDK to v3
 

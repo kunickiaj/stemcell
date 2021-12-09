@@ -46,7 +46,8 @@ describe Stemcell::Launcher do
         'count'                   => 2,
         'security_groups'         => ['sg_name1', 'sg_name2'],
         'user'                    => 'some_user',
-        'wait'                    => false
+        'wait'                    => false,
+        'cpu_options'             => 'core_count=1,threads_per_core=1'
       }
     }
 
@@ -82,7 +83,8 @@ describe Stemcell::Launcher do
                 { :key => "stemcell",   :value => Stemcell::VERSION },
               ]},
           ],
-          :user_data          => Base64.encode64('template')
+          :user_data          => Base64.encode64('template'),
+          :cpu_options        => 'core_count=1,threads_per_core=1'
         )).and_return(instances)
       # set_classic_link should not be set on vpc hosts.
       expect(launcher).not_to receive(:set_classic_link)
